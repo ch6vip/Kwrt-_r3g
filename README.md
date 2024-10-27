@@ -1,6 +1,13 @@
 #### 一分钟在线编译定制专属固件: [openwrt.ai](https://openwrt.ai)
-#### 支持300+设备:
-X86/64, 友善 NanoPi、R2S、R4S、R4SE、R5S、R2C、R5C、R6S、NEO3, 斐讯 N1、K2P、K3, 树莓派 4B、3B/3B+、2B, 电犀牛r68s、r66s, 香橙派 R1 Plus、R1 Plus LTS, 红米AX6, 小米AX3600, 小米AX9000, 红米AX6000, 红米AX6S/小米AX3200, 红米AC2100, 小米AC2100, 斐讯K3,  360V6, 玩客云, 极路由 HIWIFI HC5962(极路由4、B70)、HC5661A、HC5761A、HC5861B, 小米4, 小米 R3G, 小米 R3P, newifi-d2 (新路由3), 小娱XY-C5, 竞斗云2.0(P&W R619AC), GL.iNet GL-MT1300、GL-AX1800、GL-AXT1800、GL-microuter-N300、GL-MT300N V2, 小米CR660X(CR6606/CR6608/CR6609), 小米4A千兆版, 小米 R3G-v2, 小米青春版Nano, 迅雷下载宝 timecloud, 优酷 yk-l2, 有华 wr1200js, 向日葵 X3A, 华硕 ASUS RT-ACRH17、RT-AC58u/RT-ACRH13、RT-ac85p、RT-n56u-b1、RT-AC88U、RT-AC1200、RT-AC1200 V2, 网件 NETGEAR R6220、R6260、R6120、R6700-v2、R6800、R6850、R6900-v2、R7450、wndr3700-v5, H1 Box, 贝壳云P1, 我家云lL Pro, x96 Max, 微加云V-Plus, 章鱼星球ZYXQ, GT-King, Odroid N2, MXQ Pro+, 京东无线宝JDCloud RE-SP-01B, Linksys WRT1200AC、WRT1900AC v1、WRT1900AC v2、WRT3200ACM、WRT1900ACS v1、WRT1900ACS v2、WRT32X、EA7500 v2 等
+
+#### 环境变量:
+1. **REPO_TOKEN**: 用于访问代码仓库的令牌，可能涉及Git操作或API访问权限。
+2. **PPPOE_USERNAME** & **PPPOE_PASSWD**: 用于拨号上网（PPPoE）的用户名和密码，可能用于与ISP建立网络连接。
+3. **SCKEY**: 这可能是一个用于某种服务的密钥，例如推送通知或Webhook。
+4. **TELEGRAM_TOKEN** & **TELEGRAM_CHAT_ID**: 用于与Telegram Bot通信的令牌和目标聊天ID，可能用于发送消息通知。
+5. **SSH_PRIVATE_KEY**: 用于SSH连接的私钥，允许安全远程访问服务器或其他设备。
+6. **DOCKER_ID** & **DOCKER_PASSWD**: 用于Docker Hub的用户名和密码，可能用于拉取或推送Docker镜像。
+7. **TZ**: 设置时区为"Asia/Shanghai"，确保应用程序在正确的时区运行。
 
 [1]: https://img.shields.io/badge/license-GPLV2-brightgreen.svg
 [2]: /LICENSE
@@ -22,50 +29,11 @@ X86/64, 友善 NanoPi、R2S、R4S、R4SE、R5S、R2C、R5C、R6S、NEO3, 斐讯 
 [![Issue Welcome][5]][6]
 [![AutoBuild][12]][13]
 
-<a href="https://t.me/opwrt" target="_blank">TG通知频道</a>
-## 1. **特色**
-
-+ Cutting edge,openwrt官方openwrt-23.05分支版本, Kernel 5.15, 与官方最新源码同步.
-
-+ 原生极致纯净,固件默认只包含基础上网功能, 后台在线选装插件,系统升级不丢失插件和配置.
-
-+ 自建插件仓库囊括了市面上几乎所有开源插件,插件库日更,系统自动更新所有已安装插件.
-
-+ 通过[openwrt.ai](https://openwrt.ai)在线定制专属固件, 无需任何专业知识, 一分钟生成. 同时支持github云编译.
-
-+ 后台一键OTA更新固件,省去了每次固件升级都需要找固件,下载固件,上传固件等繁琐操作.
-
-+ 后台一键设置旁路由,一键开关IPv6.
-
-+ 支持在线安装全部Kmod内核模块.
-
-+ 替换 Uhttpd 为 Nginx, 支持 反向代理; WebDAV等诸多玩法.
-
-+ 性能,友好度,易用性,插件,以及针对国内特殊环境等的自定义优化, 开箱即用
-
-## 2. **固件**
-
-固件生成有3种方式：在线定制化生成、GitHub编译、本地化编译。
-
-可根据需要选择任意一种进行固件生成。
-
-### 2.1 **在线生成**
+### **在线生成**
 
 通过浏览器访问[https://openwrt.ai](https://openwrt.ai)进行固件定制，等待固件生成结束之后直接下载使用即可。
 
-### 2.2 **GitHub编译**
-
-+ 将仓库进行fork
-
-+ 按需添加相关环境参数REPO_TOKEN、SCKEY、TELEGRAM_CHAT_ID
-
-+ Actions页面选择 Repo Dispatcher 点击 Run workflow
-### 2.3 **GitHub结合浏览器插件编译**
-请在支持油猴的浏览器中安装 [脚本](https://greasyfork.org/scripts/407616-github-actions-trigger/code/Github%20Actions%20Trigger.user.js) ,仓库右上角会出现 x86_64 Actions,K2P Actions等按钮,点击对应按钮即可.更多玩法 [repo-dispatcher](https://github.com/tete1030/github-repo-dispatcher)
-
-## 3. **使用**
-
-### 3.1 **后台**
+### **后台**
 
 + 登录地址 op/ 或 10.0.0.1 (若后台无法打开，请尝试插拔交换wan、lan网线顺序。)
 
@@ -73,26 +41,7 @@ X86/64, 友善 NanoPi、R2S、R4S、R4SE、R5S、R2C、R5C、R6S、NEO3, 斐讯 
 
 + 默认密码 root
 
-### 3.2 **快捷访问**
-部分服务需要先自行在软件包中安装并启用，可自行在 /etc/nginx/conf.d/shortcuts.conf 中调整和添加更多快捷访问。
-
-+ op/ 可打开 OpenWRT后台 即 lan ip
-
-+ ql/ 可打开 青龙后台 即 lan ip:5700
-
-+ adg/ 可打开 AdGuardHome管理后台 即 lan ip:3000
-
-+ pve/ 可打开 Proxmox VE虚拟机管理 默认为 10.0.0.10:8006
-
-+ by/ 可打开 Bypass插件页面 即 ip/luci/admin/services/bypass
-
-+ pk/ 可打开 Packages插件管理页面 即 ip/luci/admin/system/opkg
-
-+ ag/ 可打开 Aria2 Web面板 即 ip/ariang
-
-+ ug/ 可打开 固件在线更新页面 即 ip/luci/admin/services/gpsysupgrade
-
-## 4. **注意事项**
+##  **注意事项**
 
 + 第一次使用请采用全新安装,避免出现升级失败以及其他一些可能的Bug.
 
